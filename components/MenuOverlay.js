@@ -28,11 +28,19 @@ export default function MenuOverlay({ person, menuItems, currentPath }) {
     // Load curtain effect lazily
     if (!curtainRef.current) {
       try {
-        const { default: LiquidPaintEffect } = await import(
-          "https://unpkg.com/ogl@0.0.74/src/core/Renderer.js"
-        ).then(() =>
-          import("/js/curtain2.js")
-        );
+        // Load curtain2.js as external script (it uses ESM imports from unpkg)
+        const LiquidPaintEffect = await new Promise((resolve, reject) => {
+          const script = document.createElement("script");
+          script.type = "module";
+          script.textContent = `
+            import LiquidPaintEffect from "/js/curtain2.js";
+            window.__LiquidPaintEffect = LiquidPaintEffect;
+            window.dispatchEvent(new Event("curtain-loaded"));
+          `;
+          window.addEventListener("curtain-loaded", () => resolve(window.__LiquidPaintEffect), { once: true });
+          script.onerror = reject;
+          document.head.appendChild(script);
+        });
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
         curtainRef.current = new LiquidPaintEffect(canvas, {

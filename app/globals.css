@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@source not "../ayushman";
+@source not "../anwesha";
 
 /* ===== FONTS ===== */
 @import url("https://fonts.googleapis.com/css2?family=Amarante&family=Bitcount+Grid+Double:wght@100..900&family=Changa+One:ital@0;1&family=Pathway+Gothic+One&display=swap");
