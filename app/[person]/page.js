@@ -94,15 +94,15 @@ export default async function HomePage({ params }) {
             style={{ backgroundImage: `url(${home.websiteSection.images.seal})` }}
           />
         </div>
-        <div className="websiteInfoSection relative w-full flex flex-col lg:flex-row mt-10">
-          <div className="webCol1 w-full lg:w-[70%] flex flex-col gap-10 justify-around lg:border-r-2 border-[#888] p-2 sm:p-4 md:p-5">
-            <div className="webCol1Row1 flex flex-col lg:flex-row w-full gap-5">
-              <div className="slide1 items-center flex flex-col p-2 sm:p-4 md:p-5 lg:border-r-2 border-[#888] lg:mr-5">
+        <div className="websiteInfoSection relative w-full flex flex-col lg:flex-row mt-5">
+          <div className="webCol1 w-full lg:w-[70%] flex flex-col gap-5 justify-around lg:border-r-2 border-[#888] p-2 sm:p-3 md:p-4">
+            <div className="webCol1Row1 flex flex-col lg:flex-row w-full gap-3">
+              <div className="slide1 items-center flex flex-col p-2 sm:p-3 md:p-4 lg:border-r-2 border-[#888] lg:mr-3">
                 <div
                   className="slide1Img hoverScale bg-cover bg-center h-[150px] sm:h-[180px] md:h-[200px] w-full sm:w-[350px] md:w-[400px]"
                   style={{ backgroundImage: `url(${home.websiteSection.images.owl})` }}
                 />
-                <p className="webCol1Row1Text1 text-[#1B1B19] text-left w-full text-base sm:text-lg md:text-xl lg:text-[1.8em] mt-4">
+                <p className="webCol1Row1Text1 text-[#1B1B19] text-left w-full text-base sm:text-lg md:text-xl lg:text-[1.8em] mt-3">
                   Designed By
                 </p>
                 <p className="webDescription1 relative flex text-xs sm:text-sm md:text-base lg:text-[1.3em] text-left w-full sm:w-[350px] md:w-[400px] whitespace-normal break-words h-auto min-h-[30px]">
@@ -110,9 +110,9 @@ export default async function HomePage({ params }) {
                 </p>
               </div>
               <div className="slide2 items-center flex-col">
-                <div className="slide2text1 mt-6 text-2xl sm:text-3xl md:text-4xl lg:text-[5em]">Future Plans</div>
+                <div className="slide2text1 mt-3 text-2xl sm:text-3xl md:text-4xl lg:text-[5em]">Future Plans</div>
                 <div className="slide2description">
-                  <p className="webDescription2 relative flex text-[1.3em] sm:text-sm mt-6 md:text-base lg:text-[1.5em] text-left w-full sm:w-[350px] md:w-[400px] whitespace-normal break-words h-auto min-h-[50px]">
+                  <p className="webDescription2 relative flex text-[1.3em] sm:text-sm mt-3 md:text-base lg:text-[1.5em] text-left w-full sm:w-[350px] md:w-[400px] whitespace-normal break-words h-auto min-h-[50px]">
                     {home.websiteSection.futurePlans}
                   </p>
                 </div>
@@ -123,7 +123,7 @@ export default async function HomePage({ params }) {
               style={{ backgroundImage: `url(${home.websiteSection.images.humanThink})` }}
             />
           </div>
-          <div className="webCol2 w-full lg:w-[30%] flex mt-5 flex-col items-center gap-10 p-2 sm:p-4 md:p-5">
+          <div className="webCol2 w-full lg:w-[30%] flex mt-2 flex-col items-center gap-5 p-2 sm:p-3 md:p-4">
             <div className="webCol2text1 text-left w-full">
               <div className="relative text-[#1B1B19] text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-[4em] font-extrabold line-through">
                 Wasting Time
@@ -139,7 +139,7 @@ export default async function HomePage({ params }) {
               <a
                 href={`/${person}/projects`}
                 id="projectsRedirect"
-                className="visitCircle w-full sm:w-[300px] md:w-[350px] h-[80px] sm:h-[100px] text-lg sm:text-xl md:text-2xl lg:text-[3em] border-2 border-[#222] rounded-full mt-20 flex justify-center items-center cursor-pointer transition-all duration-300 hover:bg-[#1B1B19] hover:text-[#E2D9C8] hover:scale-105 mx-auto lg:ml-[20px]"
+                className="visitCircle w-full sm:w-[300px] md:w-[350px] h-[80px] sm:h-[100px] text-lg sm:text-xl md:text-2xl lg:text-[3em] border-2 border-[#222] rounded-full mt-10 flex justify-center items-center cursor-pointer transition-all duration-300 hover:bg-[#1B1B19] hover:text-[#E2D9C8] hover:scale-105 mx-auto lg:ml-[20px]"
               >
                 Visit Now
               </a>

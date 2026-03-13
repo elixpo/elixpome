@@ -37,6 +37,25 @@ body {
   scrollbar-width: none;
 }
 
+/* ===== DEV-S SCROLLBAR ===== */
+.descriptionRow2::-webkit-scrollbar {
+  width: 6px;
+}
+.descriptionRow2::-webkit-scrollbar-track {
+  background: transparent;
+}
+.descriptionRow2::-webkit-scrollbar-thumb {
+  background: #999;
+  border-radius: 3px;
+}
+.descriptionRow2::-webkit-scrollbar-thumb:hover {
+  background: #666;
+}
+.descriptionRow2 {
+  scrollbar-width: thin;
+  scrollbar-color: #999 transparent;
+}
+
 /* ===== NAVBAR ===== */
 .name {
   font-family: "Bitcount Grid Double", system-ui;
