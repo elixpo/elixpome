@@ -1,0 +1,13 @@
+{
+  "name": "AYUSHMAN",
+  "siteName": "Elixpo",
+  "location": "WB,IN",
+  "email": "ayushbhatt633@gmail.com",
+  "socials": [
+    { "platform": "github", "url": "https://github.com/Circuit-Overtime", "icon": "logo-github" },
+    { "platform": "linkedin", "url": "https://linkedin.com/in/elixpo", "icon": "logo-linkedin" },
+    { "platform": "instagram", "url": "https://instagram.com/elixpo_", "icon": "logo-instagram" },
+    { "platform": "youtube", "url": "https://youtube.com/@elixpo", "icon": "logo-youtube" }
+  ],
+  "menuItems": ["Home", "About", "Projects", "Publications"]
+}
