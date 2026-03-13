@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "deploy": "npx wrangler pages deploy out"
+    "deploy": "next build && npx wrangler pages deploy out"
   },
   "dependencies": {
     "next": "^15.1.0",
