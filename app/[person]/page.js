@@ -186,8 +186,8 @@ export default async function HomePage({ params }) {
               className="image1row1col1techTracks w-[60px] sm:w-[80px] md:w-[100px] h-[200px] sm:h-[250px] md:h-full bg-cover bg-center rounded-[15px] mx-auto sm:mx-0"
               style={{ backgroundImage: `url(${home.techSection.images.wand})` }}
             />
-            <p className="text1row1col1techTracks h-auto sm:h-full text-[#1B1B19] text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-[13em] font-extrabold leading-tight sm:leading-[80px] md:leading-[120px] lg:leading-[160px] text-center sm:text-left my-auto">
-              THE <br />TECHY <br />SYNAPSE
+            <p className="text1row1col1techTracks h-auto sm:h-full flex items-center text-[#1B1B19] text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-[13em] font-extrabold leading-tight sm:leading-[80px] md:leading-[120px] lg:leading-[160px] text-center sm:text-left">
+              <span>THE<br />TECHY<br />SYNAPSE</span>
             </p>
           </div>
           <div

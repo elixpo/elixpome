@@ -244,7 +244,7 @@ export default function MenuOverlay({ person, menuItems, currentPath }) {
 
   return (
     <>
-      <canvas ref={canvasRef} id="above-canvas" />
+      <canvas ref={canvasRef} id="above-canvas" style={{ display: "none" }} />
       <div ref={attachMenuTrigger} style={{ display: "none" }} />
 
       {/* Menu overlay */}
