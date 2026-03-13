@@ -233,18 +233,19 @@ export default function MenuOverlay({ person, menuItems, currentPath }) {
 
   const activeMenu = getActiveMenu();
 
+  // Attach click handler to the navbar menu icon
+  const attachMenuTrigger = useCallback((node) => {
+    if (!node) return;
+    const icon = document.getElementById("scrollInMenu");
+    if (icon) {
+      icon.onclick = openMenu;
+    }
+  }, [openMenu]);
+
   return (
     <>
       <canvas ref={canvasRef} id="above-canvas" />
-
-      {/* Menu trigger in navbar */}
-      <ion-icon
-        name="list"
-        class="cursor-pointer text-lg sm:text-xl md:text-2xl z-10"
-        id="scrollInMenu"
-        onClick={openMenu}
-        style={{ cursor: "pointer" }}
-      />
+      <div ref={attachMenuTrigger} style={{ display: "none" }} />
 
       {/* Menu overlay */}
       <div
