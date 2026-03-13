@@ -64,9 +64,9 @@ export default function LandingClient({ profiles }) {
   useEffect(() => setMounted(true), []);
 
   return (
-    <div className="relative min-h-screen bg-[#1B1B19] flex flex-col items-center justify-center overflow-hidden">
+    <div className="relative h-screen bg-[#1B1B19] flex flex-col items-center justify-center overflow-hidden">
       {/* Paper texture background */}
-      <div className="fixed inset-0 opacity-[0.07] bg-[url(/assets/ayushman/paperTexture.jpg)] bg-repeat bg-contain pointer-events-none" />
+      <div className="absolute inset-0 opacity-[0.07] bg-[url(/assets/ayushman/paperTexture.jpg)] bg-repeat bg-contain pointer-events-none" />
 
       {/* Floating paper pieces */}
       {mounted &&
@@ -117,13 +117,13 @@ export default function LandingClient({ profiles }) {
 
       {/* Header */}
       <motion.div
-        className="relative z-10 text-center mb-16"
+        className="relative z-10 text-center mb-8 sm:mb-12"
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.2, ease: "easeOut" }}
       >
         <motion.h1
-          className="text-[#E2D9C8] text-7xl sm:text-9xl md:text-[12em] tracking-[12px] sm:tracking-[20px] select-none"
+          className="text-[#E2D9C8] text-6xl sm:text-8xl md:text-[10em] select-none"
           style={{ fontFamily: "Canopee, serif" }}
           initial={{ letterSpacing: "0.5em", opacity: 0 }}
           animate={{ letterSpacing: "0.15em", opacity: 1 }}
@@ -134,14 +134,14 @@ export default function LandingClient({ profiles }) {
 
         {/* Decorative line under title */}
         <motion.div
-          className="mx-auto mt-4 h-[2px] bg-gradient-to-r from-transparent via-[#ffc300] to-transparent"
+          className="mx-auto mt-3 h-[2px] bg-gradient-to-r from-transparent via-[#ffc300] to-transparent"
           initial={{ width: 0 }}
           animate={{ width: "80%" }}
           transition={{ duration: 1.5, delay: 0.8 }}
         />
 
         <motion.p
-          className="text-[#999] text-base sm:text-lg md:text-xl mt-6 tracking-[3px] sm:tracking-[5px] max-w-[700px] mx-auto px-4"
+          className="text-[#999] text-sm sm:text-base md:text-lg mt-4 tracking-[3px] sm:tracking-[5px] max-w-[700px] mx-auto px-4"
           style={{ fontFamily: "'Pathway Gothic One', sans-serif" }}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -151,40 +151,41 @@ export default function LandingClient({ profiles }) {
         </motion.p>
       </motion.div>
 
-      {/* Person Cards */}
-      <div className="relative z-10 flex flex-col sm:flex-row gap-8 sm:gap-16 px-6">
+      {/* Person Cards — horizontal scroll when many */}
+      <div className="relative z-10 flex flex-row gap-8 sm:gap-12 px-8 overflow-x-auto max-w-full scrollbar-hide">
         {profiles.map((profile, index) => (
           <motion.div
             key={profile.slug}
+            className="flex-shrink-0"
             initial={{ opacity: 0, y: 60, rotateY: -10 }}
             animate={{ opacity: 1, y: 0, rotateY: 0 }}
             transition={{ duration: 0.8, delay: 1.5 + index * 0.3, ease: "easeOut" }}
           >
             <Link
               href={`/${profile.slug}`}
-              className="group relative block w-[300px] sm:w-[350px] h-[420px] border-2 border-[#444] rounded-[20px] bg-[#E2D9C8] p-6 transition-all duration-500 hover:scale-105 hover:border-[#ffc300] hover:shadow-[0_0_60px_rgba(255,195,0,0.12)]"
+              className="group relative block w-[260px] sm:w-[300px] h-[360px] sm:h-[400px] border-2 border-[#444] rounded-[20px] bg-[#E2D9C8] p-5 transition-all duration-500 hover:scale-105 hover:border-[#ffc300] hover:shadow-[0_0_60px_rgba(255,195,0,0.12)]"
             >
               {/* Paper grain overlay on card */}
               <div className="absolute inset-0 rounded-[20px] opacity-30 bg-[url(/assets/ayushman/paperTexture.jpg)] bg-repeat bg-cover pointer-events-none mix-blend-multiply" />
 
               {/* Portrait */}
               <div
-                className="relative w-full h-[230px] rounded-[12px] bg-cover bg-center border-2 border-[#222] sepia-[40%] saturate-[180%] group-hover:sepia-0 group-hover:saturate-100 transition-all duration-500"
+                className="relative w-full h-[200px] sm:h-[220px] rounded-[12px] bg-cover bg-center border-2 border-[#222] sepia-[40%] saturate-[180%] group-hover:sepia-0 group-hover:saturate-100 transition-all duration-500"
                 style={{
                   backgroundImage: `url(/assets/${profile.slug}/about/ptr-11.png)`,
                 }}
               />
 
               {/* Name */}
-              <div className="relative mt-4">
+              <div className="relative mt-3">
                 <h2
-                  className="text-[#1B1B19] text-4xl sm:text-5xl tracking-wide"
+                  className="text-[#1B1B19] text-3xl sm:text-4xl tracking-wide"
                   style={{ fontFamily: "Canopee, serif" }}
                 >
                   {profile.name}
                 </h2>
                 <p
-                  className="text-[#666] text-base mt-1 tracking-[2px]"
+                  className="text-[#666] text-sm mt-1 tracking-[2px]"
                   style={{ fontFamily: "'Pathway Gothic One', sans-serif" }}
                 >
                   {profile.siteName}
@@ -192,19 +193,18 @@ export default function LandingClient({ profiles }) {
               </div>
 
               {/* Arrow circle */}
-              <div className="absolute bottom-6 right-6 w-[50px] h-[50px] border-2 border-dashed border-[#222] rounded-full flex items-center justify-center group-hover:bg-[#1B1B19] group-hover:border-solid group-hover:rotate-[360deg] transition-all duration-700">
-                <span className="text-[#222] text-2xl group-hover:text-[#E2D9C8] transition-colors duration-300">
+              <div className="absolute bottom-5 right-5 w-[44px] h-[44px] border-2 border-dashed border-[#222] rounded-full flex items-center justify-center group-hover:bg-[#1B1B19] group-hover:border-solid group-hover:rotate-[360deg] transition-all duration-700">
+                <span className="text-[#222] text-xl group-hover:text-[#E2D9C8] transition-colors duration-300">
                   &rarr;
                 </span>
               </div>
 
               {/* Stamp decoration */}
-              <div className="absolute top-4 right-4 w-[40px] h-[40px] rounded-full border border-dashed border-[#999] opacity-40 group-hover:opacity-70 transition-opacity duration-300" />
+              <div className="absolute top-4 right-4 w-[36px] h-[36px] rounded-full border border-dashed border-[#999] opacity-40 group-hover:opacity-70 transition-opacity duration-300" />
             </Link>
           </motion.div>
         ))}
       </div>
-
     </div>
   );
 }

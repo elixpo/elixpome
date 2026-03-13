@@ -24,13 +24,15 @@ body {
 .appContainer::-webkit-scrollbar,
 .spotlight::-webkit-scrollbar,
 .recommendationSection::-webkit-scrollbar,
-.workExperience::-webkit-scrollbar {
+.workExperience::-webkit-scrollbar,
+.scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
 .appContainer,
 .spotlight,
 .recommendationSection,
-.workExperience {
+.workExperience,
+.scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
