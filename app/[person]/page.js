@@ -17,21 +17,21 @@ export default async function HomePage({ params }) {
           return (
             <span key={index} className="contents">
               {index === midIndex && (
-                <div id="spotlightCenter" className="featuredTileSpecial relative h-[350px] w-[450px] flex-shrink-0 flex flex-col items-center mt-[10px] border-r-2 border-l-2 border-[#888] px-5">
-                  <p className="featuredTileSpecialText text-[4em] font-extrabold tracking-wide relative">SPOTLIGHT!</p>
-                  <p className="featuredTileSpecialDesc text-[1.8em] font-thin relative text-center">Welcome to the latest catches -- in my career and let&apos;s find the craziest!!</p>
-                  <p className="featuredTileSpecialTip relative text-[1.5em] font-extrabold text-center top-[70px]">&lt;&lt; Watch! More to Come &gt;&gt;</p>
+                <div id="spotlightCenter" className="featuredTileSpecial relative h-[280px] sm:h-[350px] w-[280px] sm:w-[450px] flex-shrink-0 flex flex-col items-center mt-[10px] border-r-2 border-l-2 border-[#888] px-3 sm:px-5">
+                  <p className="featuredTileSpecialText text-2xl sm:text-[4em] font-extrabold tracking-wide relative">SPOTLIGHT!</p>
+                  <p className="featuredTileSpecialDesc text-sm sm:text-[1.8em] font-thin relative text-center">Welcome to the latest catches -- in my career and let&apos;s find the craziest!!</p>
+                  <p className="featuredTileSpecialTip relative text-xs sm:text-[1.5em] font-extrabold text-center top-[30px] sm:top-[70px]">&lt;&lt; Watch! More to Come &gt;&gt;</p>
                 </div>
               )}
-              <div className="featuredTile relative h-[350px] w-[400px] flex-shrink-0 flex flex-col mt-[10px] px-[20px] overflow-hidden">
+              <div className="featuredTile relative h-[280px] sm:h-[350px] w-[250px] sm:w-[400px] flex-shrink-0 flex flex-col mt-[10px] px-[10px] sm:px-[20px] overflow-hidden">
                 <div
-                  className="featuredImage hoverScale h-[150px] w-full bg-cover bg-center rounded-[12px]"
+                  className="featuredImage hoverScale h-[120px] sm:h-[150px] w-full bg-cover bg-center rounded-[12px]"
                   style={{ backgroundImage: `url(${news.image})` }}
                 />
-                <p className="featureName font-[Canopee,serif] text-[1.6em] tracking-wide mt-3 leading-tight truncate">
+                <p className="featureName font-[Canopee,serif] text-base sm:text-[1.6em] tracking-wide mt-2 sm:mt-3 leading-tight truncate">
                   {news.title}
                 </p>
-                <p className="featuredDescription text-[1.1em] text-[#555] mt-1 leading-snug line-clamp-3 overflow-hidden">
+                <p className="featuredDescription text-xs sm:text-[1.1em] text-[#555] mt-1 leading-snug line-clamp-3 overflow-hidden">
                   {news.description.slice(0, 120)}...
                 </p>
               </div>
@@ -41,8 +41,8 @@ export default async function HomePage({ params }) {
       </SpotlightScroller>
 
       {/* Intro Section */}
-      <section className="introSection relative mt-[10px] w-full flex flex-col border-b-2 border-[#111] p-5">
-        <div className="nameContainer text-4xl sm:text-6xl md:text-8xl lg:text-[12em] xl:text-[20em] w-full h-[200px] sm:h-[250px] md:h-[300px] lg:h-[350px] flex justify-center items-center bg-[#1B1B19] text-center opacity-90 select-none rounded-[15px] tracking-[2px] sm:tracking-[3px] md:tracking-[5px]">
+      <section className="introSection relative mt-[10px] w-full flex flex-col border-b-2 border-[#111] p-2 sm:p-5">
+        <div className="nameContainer text-2xl sm:text-6xl md:text-8xl lg:text-[12em] xl:text-[20em] w-full h-[50px] sm:h-[250px] md:h-[300px] lg:h-[350px] flex justify-center items-center bg-[#1B1B19] text-center opacity-90 select-none rounded-[10px] sm:rounded-[15px] tracking-[2px] sm:tracking-[3px] md:tracking-[5px]">
           <p className="text-[#E2D9C8]">{home.intro.heroName}</p>
         </div>
 
@@ -74,7 +74,7 @@ export default async function HomePage({ params }) {
             {home.intro.highlights.map((hl, i) => (
               <div
                 key={i}
-                className="col2text relative mt-10 text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-[4em]"
+                className="col2text relative mt-5 sm:mt-10 text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-[4em] font-semibold"
               >
                 {hl}
               </div>
@@ -86,7 +86,7 @@ export default async function HomePage({ params }) {
       {/* Website Section */}
       <section id="websiteSection" className="websiteSection relative mt-[10px] w-full flex flex-col border-b-2 border-[#111] p-2 sm:p-4 md:p-5">
         <div className="websiteContainer flex flex-col lg:flex-row items-center h-auto lg:h-[250px] w-full mt-10 justify-between gap-5">
-          <div className="relative websiteTextContainer text-4xl sm:text-6xl md:text-8xl lg:text-[12em] xl:text-[16em] w-full lg:w-[70%] flex justify-center items-center h-[150px] sm:h-[200px] lg:h-[250px] bg-[#1B1B19] text-center opacity-90 select-none rounded-[15px]">
+          <div className="relative websiteTextContainer text-3xl sm:text-6xl md:text-8xl lg:text-[12em] xl:text-[16em] w-full lg:w-[70%] flex justify-center items-center h-[80px] sm:h-[200px] lg:h-[250px] bg-[#1B1B19] text-center opacity-90 select-none rounded-[10px] sm:rounded-[15px]">
             <p className="text-[#E2D9C8] tracking-wide">WEBSITE</p>
           </div>
           <div
@@ -149,28 +149,28 @@ export default async function HomePage({ params }) {
       </section>
 
       {/* Recommendations Section */}
-      <section id="recommendationSection" className="recommendationSection relative h-[450px] mb-[20px] pl-4 pr-4 sm:pl-8 sm:pr-8 md:pl-[40px] md:pr-[40px] box-border py-[40px] gap-[20px] overflow-x-auto overflow-y-hidden flex-nowrap flex flex-row mt-20">
+      <section id="recommendationSection" className="recommendationSection relative h-auto min-h-[300px] sm:min-h-[400px] md:min-h-[450px] mb-[20px] px-3 sm:px-6 md:px-[40px] box-border py-[20px] sm:py-[40px] gap-[15px] sm:gap-[20px] overflow-x-auto overflow-y-hidden flex-nowrap flex flex-row mt-10 sm:mt-20">
         {recommendations.map((rec, index) => (
           <div
             key={index}
-            className="recommendationCard shrink-0 relative h-[400px] w-[650px] border-4 border-[#222] rounded-[25px] bg-[#E2D9C8] p-5 justify-center items-center mr-5 cursor-pointer hover:brightness-[85%] transition-all duration-300 ease-in-out"
+            className="recommendationCard shrink-0 relative h-[280px] sm:h-[350px] md:h-[400px] w-[300px] sm:w-[500px] md:w-[650px] border-4 border-[#222] rounded-[20px] sm:rounded-[25px] bg-[#E2D9C8] p-3 sm:p-5 justify-center items-center mr-3 sm:mr-5 cursor-pointer hover:brightness-[85%] transition-all duration-300 ease-in-out"
           >
-            <div className="dottedContainer relative h-full w-full border-2 border-dashed border-[#222] rounded-[30px] flex flex-col gap-5 p-10 justify-between">
-              <p className="quote text-[#333] text-[1.55em] whitespace-normal break-words underline decoration-1 decoration-[0.05rem] decoration-[#888] underline-offset-[6px]">
+            <div className="dottedContainer relative h-full w-full border-2 border-dashed border-[#222] rounded-[20px] sm:rounded-[30px] flex flex-col gap-3 sm:gap-5 p-4 sm:p-6 md:p-10 justify-between">
+              <p className="quote text-[#333] text-xs sm:text-base md:text-[1.55em] whitespace-normal break-words underline decoration-1 decoration-[0.05rem] decoration-[#888] underline-offset-[4px] sm:underline-offset-[6px]">
                 &ldquo;{rec.content.slice(0, 200)}...&rdquo;
               </p>
-              <div className="attribution flex flex-row items-center gap-5">
+              <div className="attribution flex flex-row items-center gap-3 sm:gap-5">
                 <div
-                  className="userLogo relative bg-cover bg-center h-[80px] w-[80px] border-2 border-[#222] rounded-[50%] grayscale sepia-[50%]"
+                  className="userLogo relative bg-cover bg-center h-[50px] w-[50px] sm:h-[60px] sm:w-[60px] md:h-[80px] md:w-[80px] border-2 border-[#222] rounded-[50%] grayscale sepia-[50%] shrink-0"
                   style={{ backgroundImage: `url(${rec.image})` }}
                 />
-                <div className="userInfo flex flex-col gap-1 leading-[30px]">
-                  <div className="userName font-extrabold text-[1.4em] relative tracking-wide">{rec.name}</div>
-                  <div className="userDesig font-thin text-[1.1em] relative">{rec.designation}</div>
+                <div className="userInfo flex flex-col gap-0 sm:gap-1 leading-[20px] sm:leading-[30px]">
+                  <div className="userName font-extrabold text-sm sm:text-base md:text-[1.4em] relative tracking-wide">{rec.name}</div>
+                  <div className="userDesig font-thin text-xs sm:text-sm md:text-[1.1em] relative">{rec.designation}</div>
                 </div>
               </div>
               <div
-                className="stamp absolute bottom-[20px] right-[20px] h-[80px] w-[80px] bg-cover bg-center"
+                className="stamp absolute bottom-[10px] right-[10px] sm:bottom-[20px] sm:right-[20px] h-[50px] w-[50px] sm:h-[60px] sm:w-[60px] md:h-[80px] md:w-[80px] bg-cover bg-center"
                 style={{ backgroundImage: `url(/assets/${person}/projects/stamp-2.png)` }}
               />
             </div>
@@ -183,10 +183,10 @@ export default async function HomePage({ params }) {
         <div className="row1 relative w-full flex flex-col lg:flex-row gap-5">
           <div className="row1col1 relative w-full flex flex-col sm:flex-row gap-4 sm:gap-10 items-start h-auto sm:h-[300px] md:h-[400px] lg:h-[500px]">
             <div
-              className="image1row1col1techTracks w-[60px] sm:w-[80px] md:w-[100px] h-[200px] sm:h-[250px] md:h-full bg-cover bg-center rounded-[15px] mx-auto sm:mx-0"
+              className="image1row1col1techTracks hidden sm:block w-[80px] md:w-[100px] h-[250px] md:h-full bg-cover bg-center rounded-[15px]"
               style={{ backgroundImage: `url(${home.techSection.images.wand})` }}
             />
-            <p className="text1row1col1techTracks h-auto sm:h-full flex items-center text-[#1B1B19] text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-[13em] font-extrabold leading-tight sm:leading-[80px] md:leading-[120px] lg:leading-[160px] text-center sm:text-left">
+            <p className="text1row1col1techTracks h-auto sm:h-full w-full sm:w-auto flex items-center justify-center sm:justify-start text-[#1B1B19] text-4xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-[13em] font-extrabold leading-tight sm:leading-[80px] md:leading-[120px] lg:leading-[160px] text-center sm:text-left">
               <span>THE<br />TECHY<br />SYNAPSE</span>
             </p>
           </div>
@@ -221,7 +221,7 @@ export default async function HomePage({ params }) {
             </div>
           </div>
           <div className="row2row2 flex flex-col lg:flex-row w-full gap-5 lg:gap-10 mt-10">
-            <div className="relative websiteTextContainer text-4xl sm:text-6xl md:text-8xl lg:text-[15em] xl:text-[25em] w-full lg:w-[70%] flex justify-center items-center h-[250px] sm:h-[350px] md:h-[450px] bg-[#1B1B19] text-center opacity-90 select-none rounded-[15px]">
+            <div className="relative websiteTextContainer text-3xl sm:text-6xl md:text-8xl lg:text-[15em] xl:text-[25em] w-full lg:w-[70%] flex justify-center items-center h-[100px] sm:h-[350px] md:h-[450px] bg-[#1B1B19] text-center opacity-90 select-none rounded-[10px] sm:rounded-[15px]">
               <p className="text-[#E2D9C8] tracking-wide font-extrabold">{home.techSection.subheading}</p>
             </div>
             <div className="descriptionRow2 w-full lg:w-[30%] h-[250px] sm:h-[350px] md:h-[450px] overflow-y-auto">

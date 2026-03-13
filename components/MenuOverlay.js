@@ -251,7 +251,7 @@ export default function MenuOverlay({ person, menuItems, currentPath }) {
       <div
         ref={menuRef}
         id="menuSection"
-        className="menuSection bg-[#1D1D1B] h-full w-full fixed top-0 left-0 z-50 flex flex-col items-center justify-center gap-3 sm:gap-5 text-[#E2D9C8] text-lg sm:text-xl md:text-[2em] font-extrabold tracking-widest"
+        className="menuSection bg-[#1D1D1B] h-full w-full fixed top-0 left-0 z-50 flex flex-col items-center justify-center gap-0 sm:gap-3 text-[#E2D9C8] text-lg sm:text-xl md:text-[2em] font-extrabold tracking-widest"
         style={{ display: "none", opacity: 0, pointerEvents: "none" }}
       >
         <div className="navBar absolute top-0 h-[80px] w-full flex items-center justify-between px-4 sm:px-8 md:px-[50px] box-border mb-[13px]">
@@ -266,7 +266,7 @@ export default function MenuOverlay({ person, menuItems, currentPath }) {
         {menuItems.map((item) => (
           <div
             key={item}
-            className={`menuItem cursor-pointer opacity-0 font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-[4em] leading-[60px] sm:leading-[80px] md:leading-[120px] hover:scale-105 hover:tracking-[0.03em] transition-all duration-300 text-center uppercase mt-0 mb-0 tracking-[-0.05em] font-[Canopee,sans-serif] ${
+            className={`menuItem cursor-pointer opacity-0 font-extrabold text-7xl sm:text-7xl md:text-8xl lg:text-[5em] leading-[1.1] sm:leading-[110px] md:leading-[130px] hover:scale-105 hover:tracking-[0.03em] transition-all duration-300 text-center uppercase mt-0 mb-0 tracking-[-0.05em] font-[Canopee,sans-serif] ${
               activeMenu === item ? "selected" : ""
             }`}
             onClick={() => handleMenuClick(item)}

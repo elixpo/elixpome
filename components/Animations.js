@@ -97,7 +97,7 @@ export function SpotlightScroller({ children }) {
   return (
     <section
       ref={scrollRef}
-      className="spotlight relative h-[350px] mb-[20px] pl-4 pr-4 sm:pl-8 sm:pr-8 md:pl-[40px] md:pr-[40px] box-border py-[40px] gap-[20px] overflow-x-auto overflow-y-hidden flex-nowrap flex flex-row select-none cursor-grabbing"
+      className="spotlight relative h-[300px] sm:h-[350px] mb-[20px] px-3 sm:px-6 md:px-[40px] box-border py-[20px] sm:py-[40px] gap-[15px] sm:gap-[20px] overflow-x-auto overflow-y-hidden flex-nowrap flex flex-row select-none cursor-grabbing"
     >
       {children}
     </section>
