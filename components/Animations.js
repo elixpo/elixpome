@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 export function FadeInReveal() {
   useEffect(() => {
@@ -57,6 +57,14 @@ export function InertiaScroll() {
       ) {
         return;
       }
+      // Let scrollable inner containers (like descriptionRow2) handle their own scroll
+      const scrollableParent = e.target.closest && e.target.closest(".overflow-y-auto");
+      if (scrollableParent) {
+        const { scrollTop, scrollHeight, clientHeight } = scrollableParent;
+        const atTop = scrollTop === 0 && e.deltaY < 0;
+        const atBottom = scrollTop + clientHeight >= scrollHeight - 1 && e.deltaY > 0;
+        if (!atTop && !atBottom) return;
+      }
       if (!e.shiftKey && Math.abs(e.deltaX) < Math.abs(e.deltaY)) {
         e.preventDefault();
         velocity += e.deltaY * 0.5;
@@ -71,6 +79,29 @@ export function InertiaScroll() {
     };
   }, []);
   return null;
+}
+
+export function SpotlightScroller({ children }) {
+  const scrollRef = useRef(null);
+
+  useEffect(() => {
+    const container = scrollRef.current;
+    if (!container) return;
+    const center = container.querySelector("#spotlightCenter");
+    if (center) {
+      const scrollLeft = center.offsetLeft - container.offsetWidth / 2 + center.offsetWidth / 2;
+      container.scrollLeft = scrollLeft;
+    }
+  }, []);
+
+  return (
+    <section
+      ref={scrollRef}
+      className="spotlight relative h-[350px] mb-[20px] pl-4 pr-4 sm:pl-8 sm:pr-8 md:pl-[40px] md:pr-[40px] box-border py-[40px] gap-[20px] overflow-x-auto overflow-y-hidden flex-nowrap flex flex-row select-none cursor-grabbing"
+    >
+      {children}
+    </section>
+  );
 }
 
 export function ScaleContainer() {

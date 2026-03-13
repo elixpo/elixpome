@@ -70,7 +70,7 @@ export default async function ProjectsPage({ params }) {
                     href={data.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="projectName font-extrabold text-[2.3em] text-[#222] underline cursor-pointer underline-offset-[6px] decoration-[#555] transition-[0.25s] hover:text-[#66460c]"
+                    className="projectName font-extrabold text-[2.3em] text-[#222] underline cursor-pointer underline-offset-[6px] decoration-[#555] transition-[0.25s] hover:text-[#66460c] font-[Canopee,serif] tracking-wide"
                   >
                     {data.name}
                   </a>
