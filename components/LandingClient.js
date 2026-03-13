@@ -40,6 +40,39 @@ function InkSplatter({ delay, x, y }) {
   );
 }
 
+function EmailCopy({ email }) {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    navigator.clipboard.writeText(email).catch(() => {
+      const ta = document.createElement("textarea");
+      ta.value = email;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand("copy");
+      document.body.removeChild(ta);
+    });
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1500);
+  };
+
+  return (
+    <button
+      onClick={handleCopy}
+      className="mt-2 flex items-center gap-2 px-2 py-1 rounded-md bg-[#1B1B19]/10 hover:bg-[#1B1B19] hover:text-[#E2D9C8] transition-all duration-300 text-[#777] text-[0.7em] tracking-[1px] cursor-pointer"
+      style={{ fontFamily: "'Pathway Gothic One', sans-serif" }}
+    >
+      <span>{copied ? "Copied!" : email}</span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+      </svg>
+    </button>
+  );
+}
+
 const paperPieces = [
   { delay: 0, x: 10, y: 15, size: 60, rotation: 15 },
   { delay: 2, x: 80, y: 10, size: 40, rotation: -25 },
@@ -184,15 +217,10 @@ export default function LandingClient({ profiles }) {
                 >
                   {profile.name}
                 </h2>
-                <p
-                  className="text-[#666] text-sm mt-1 tracking-[2px]"
-                  style={{ fontFamily: "'Pathway Gothic One', sans-serif" }}
-                >
-                  {profile.siteName}
-                </p>
                 <p className="text-[#888] text-xs mt-2 tracking-[1px]">
                   {profile.siteDescription}
                 </p>
+                <EmailCopy email={profile.email} />
               </div>
 
               {/* Arrow circle */}

@@ -1,9 +1,9 @@
 {
   "name": "ANWESHA",
-  "siteName": "Designer",
+  "siteName": "Anwesha",
   "siteDescription": "Designer at Elixpo",
   "location": "WB,IN",
-  "email": "",
+  "email": "anwesha@elixpo.com",
   "socials": [
     { "platform": "github", "url": "https://github.com/CSE-Anwesha", "icon": "logo-github" },
     { "platform": "linkedin", "url": "https://linkedin.com/in/anwe", "icon": "logo-linkedin" },
