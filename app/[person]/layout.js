@@ -1,5 +1,8 @@
 import { getPersonContent, getValidPersons } from "@/lib/content";
 import { notFound } from "next/navigation";
+import MenuOverlay from "@/components/MenuOverlay";
+import Footer from "@/components/Footer";
+import { FadeInReveal, InertiaScroll } from "@/components/Animations";
 
 export async function generateStaticParams() {
   return getValidPersons().map((person) => ({ person }));
@@ -24,62 +27,40 @@ export default async function PersonLayout({ children, params }) {
   const profile = getPersonContent(person, "profile");
 
   return (
-    <div className="relative min-h-screen bg-white">
+    <div className="relative min-h-screen bg-white flex flex-col justify-center overflow-hidden">
+      <MenuOverlay person={person} menuItems={profile.menuItems} currentPath="" />
+
       {/* Paper texture overlay */}
       <div
-        className="fixed top-0 left-0 w-screen h-screen opacity-55 bg-contain bg-repeat bg-center brightness-[55%] sepia-[65%] pointer-events-none z-0"
+        className="absolute top-0 left-0 w-screen h-screen opacity-55 bg-contain bg-repeat bg-center brightness-[55%] sepia-[65%]"
         style={{ backgroundImage: `url(/assets/${person}/paperTexture.jpg)` }}
       />
 
       {/* Navbar */}
-      <nav className="sticky top-0 z-40 h-[80px] flex items-center justify-between border-b-2 border-[#888] px-4 sm:px-8 md:px-[50px] bg-white/80 backdrop-blur-sm">
-        <p className="text-sm sm:text-lg md:text-[1.5em]">{profile.location}</p>
-        <a href={`/${person}`} className="text-xl sm:text-2xl md:text-[3em] cursor-pointer">
+      <div className="navBar static h-[80px] flex items-center justify-between border-b-2 border-[#888] px-4 sm:px-8 md:px-[50px] box-border mb-[5px]">
+        <p className="location text-sm sm:text-lg md:text-[1.5em] z-10">{profile.location}</p>
+        <a href={`/${person}`} className="name text-xl sm:text-2xl md:text-[3em] cursor-pointer z-10">
           {profile.siteName}
         </a>
-        <div className="flex gap-4 text-sm">
-          {profile.menuItems.map((item) => (
-            <a
-              key={item}
-              href={`/${person}${item === "Home" ? "" : `/${item.toLowerCase()}`}`}
-              className="hover:underline underline-offset-4"
-            >
-              {item}
-            </a>
-          ))}
-        </div>
-      </nav>
+        <ion-icon
+          name="list"
+          class="cursor-pointer text-lg sm:text-xl md:text-2xl z-10"
+          id="scrollInMenu"
+          style={{ cursor: "pointer" }}
+        />
+      </div>
 
       {/* Main content */}
-      <main className="relative z-10 mx-auto max-w-[1440px] p-4 sm:p-6 md:p-10">
+      <div
+        id="appContainer"
+        className="appContainer relative top-0 mx-auto max-w-[1440px] h-[calc(100vh-100px)] max-h-[calc(100vh-100px)] overflow-y-auto overflow-x-hidden p-4 sm:p-6 md:p-10"
+      >
         {children}
-      </main>
+        <Footer profile={profile} person={person} />
+      </div>
 
-      {/* Footer */}
-      <footer className="relative z-10 border-t-2 border-[#222] mt-10">
-        <div className="flex flex-col sm:flex-row justify-around items-center py-5 px-4">
-          <p className="text-[#111] text-xl sm:text-2xl md:text-[3em] select-none">
-            {profile.siteName.toUpperCase()}
-          </p>
-          <div className="flex gap-5 mt-3 sm:mt-0 items-center">
-            {profile.socials.map((social, idx) => (
-              <span key={social.platform} className="flex items-center gap-3">
-                <a
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-xl sm:text-2xl hover:rotate-[10deg] transition-transform"
-                >
-                  {social.platform}
-                </a>
-                {idx < profile.socials.length - 1 && (
-                  <span className="h-[10px] w-[10px] rounded-full bg-[#111]" />
-                )}
-              </span>
-            ))}
-          </div>
-        </div>
-      </footer>
+      <FadeInReveal />
+      <InertiaScroll />
     </div>
   );
 }
