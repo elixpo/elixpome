@@ -2,11 +2,28 @@ import "./globals.css";
 import Script from "next/script";
 
 export const metadata = {
-  title: "Elixpo",
-  description: "Portfolio showcase",
+  title: {
+    default: "Elixpo",
+    template: "%s | Elixpo",
+  },
+  description: "Personalized portfolio showcase for Elixpo organization members",
   icons: {
     icon: "https://cdn.discordapp.com/app-icons/1214916249222643752/f60abd68fff5f65f72076a5aaac5afb8.png?size=512",
   },
+  openGraph: {
+    type: "website",
+    siteName: "Elixpo",
+    title: "Elixpo",
+    description: "Personalized portfolio showcase for Elixpo organization members",
+    images: [{ url: "/assets/og-image.png", width: 1200, height: 630, alt: "Elixpo" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Elixpo",
+    description: "Personalized portfolio showcase for Elixpo organization members",
+    images: ["/assets/og-image.png"],
+  },
+  metadataBase: new URL("https://elixpo.com"),
 };
 
 export default function RootLayout({ children }) {

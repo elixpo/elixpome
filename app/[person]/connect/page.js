@@ -4,7 +4,14 @@ import CopyEmail from "@/components/CopyEmail";
 export async function generateMetadata({ params }) {
   const { person } = await params;
   const profile = getPersonContent(person, "profile");
-  return { title: `${profile.siteName} - Connect` };
+  const title = `${profile.siteName} - Connect`;
+  const description = `Connect with ${profile.siteName} — ${profile.siteDescription}`;
+  return {
+    title,
+    description,
+    openGraph: { title, description, images: [{ url: "/assets/og-image.png", width: 1200, height: 630, alt: profile.siteName }] },
+    twitter: { card: "summary_large_image", title, description, images: ["/assets/og-image.png"] },
+  };
 }
 
 export default async function ConnectPage({ params }) {
